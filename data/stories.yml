@@ -1,0 +1,112 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_record_chatlog
+
+  - intent: mood_great
+  - action: utter_did_that_help
+  - action: utter_happy
+
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_record_chatlog
+
+  - intent: mood_unhappy
+  - action: utter_did_that_help
+  - action: utter_cheer_up
+  - action: action_record_chatlog
+  - intent: affirm
+  - action: utter_happy
+  - action: action_record_chatlog
+
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_record_chatlog
+
+  - intent: mood_unhappy
+  - action: utter_did_that_help
+  - action: utter_cheer_up
+  - action: action_record_chatlog
+
+  - intent: deny
+  - action: utter_did_that_help
+  - action: utter_goodbye
+  - action: action_record_chatlog
+
+- story: 提交預約
+  steps:
+  - intent: appointment
+  - action: action_collect_appointment_data
+  - slot_was_set:
+      - date: null
+      - time: null
+      - doctor: null
+      - customer: null
+      - fullname: null
+      - age: null
+      - sex: null
+      - clinic: null
+  
+
+  - action: action_ask_date
+  - intent: provide_date
+  - action: action_store_date
+  - slot_was_set:
+      - date: "requested_slot"
+  
+
+  - action: action_ask_time
+  - intent: provide_time
+  - action: action_store_time
+  - slot_was_set:
+      - time: "requested_slot"
+  
+
+  - action: action_ask_doctor
+  - intent: provide_doctor
+  - action: action_store_doctor
+  - slot_was_set:
+      - doctor: "requested_slot"
+      - clinic: "requested_slot"
+
+      
+  - action: action_store_customer
+  - slot_was_set:
+      - customer: "requested_slot"
+
+
+  - action: action_ask_fullname
+  - intent: provide_fullname
+  - action: action_store_fullname
+  - slot_was_set:
+      - fullname: "requested_slot"
+
+
+  - action: action_ask_age
+  - intent: provide_age
+  - action: action_store_age
+  - slot_was_set:
+      - age: "requested_slot"
+
+
+  - action: action_ask_sex
+  - intent: provide_sex
+  - action: action_store_sex
+  - slot_was_set:
+      - sex: "requested_slot"
+
+
+
+  - action: action_submit_appointment
+  - action: action_restart

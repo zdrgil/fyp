@@ -1,0 +1,137 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - my_profile
+  - appointment
+  - provide_date
+  - provide_time
+  - provide_doctor
+  - provide_fullname
+  - provide_age
+  - provide_sex
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+
+actions:
+  - action_hello_world
+  - action_collect_appointment_data
+  - action_submit_appointment
+  - action_ask_date
+  - action_ask_time
+  - action_store_date
+  - action_store_time
+  - action_ask_doctor
+  - action_store_doctor
+  - action_store_customer
+  - action_ask_fullname
+  - action_store_fullname
+  - action_ask_age
+  - action_store_age
+  - action_ask_sex
+  - action_store_sex
+  - action_ask_customer
+  - action_record_chatlog
+
+
+entities:
+  - date
+  - time
+  - doctor
+  - customer
+  - fullname
+  - age
+  - sex
+  - clinic
+
+
+slots:
+  date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: date
+
+  time:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: time
+  doctor:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: doctor
+
+  customer:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: customer    
+
+  fullname:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: fullname   
+
+  age:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: age
+  sex:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: sex
+  clinic:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: clinic                
+
+
+ 
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+
+

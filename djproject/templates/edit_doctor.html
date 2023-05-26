@@ -1,0 +1,26 @@
+<h1>Edit Doctor</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" id="submit-btn">Update</button>
+</form>
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<script>
+  // 當按下提交按鈕時
+  document.getElementById("submit-btn").addEventListener("click", function(event) {
+    // 取消預設行為
+    event.preventDefault();
+    // 顯示彈窗，要求確認是否離開
+    if (confirm("Are you sure you want to leave?")) {
+      // 如果確認要離開，則提交表單
+      document.getElementById("submit-btn").form.submit();
+    }
+  });
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+</head>
+<body>
+	<h1>Registration Form</h1>
+	<form method="post">
+		{% csrf_token %}
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required><br><br>
+		<label for="password2">Confirm Password:</label>
+		<input type="password" id="password2" name="password2" required><br><br>
+		<label for="password2">Clinic:</label>
+		<input type="text" id="clinicreate" name="clinicreate" required><br><br>
+		<input type="submit" value="Register">
+		
+	</form>
+	<p>already have an account? <a href="adminlogin">Login</a></p>
+
+</body>
+</html>

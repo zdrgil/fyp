@@ -1,0 +1,48 @@
+@import "HeroSection.css";
+@import "ServicesSection.css";
+@import "AboutSection.css";
+
+
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 768px) {
+
+  .hero {
+    padding: 100px 20px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .hero .cta-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .services ul li span {
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+
+
+{% block nav %}
+{% include "NavBar.html" %}
+{% endblock %} 
+
+
+
+{% block content1 %} 
+
+{% if user.is_authenticated %}
+<h1>Welcome, {{user.username}}</h1>
+{% else %}
+<h1>Welcome to Clinic Book System,{{my_data}}</h1>
+{% endif %}
+<p>We provide a convenient way to book appointments with your doctor.</p>
+
+{% if user.is_authenticated %}
+{% include "Appointments.html" with clinics=clinics customer_info=customer_info current_date=current_date current_time=current_time %}
+{% else %}
+<a href="Loginpage" class="cta-btn">Book Now</a>
+{% endif %}
+
+{% endblock %} 
+
+
+
+{% block content2 %}
+<h2>Our Services</h2>
+<ul>
+  <li>
+    <div class="service-icon">
+      <i class="fas fa-calendar-check"></i>
+    </div>
+    <div class="service-details">
+      <h3>Online Appointments</h3>
+      <p>
+        Book appointments with your doctor quickly and easily using our online
+        platform.
+      </p>
+    </div>
+  </li>
+  <li>
+    <div class="service-icon">
+      <i class="fas fa-file-medical-alt"></i>
+    </div>
+    <div class="service-details">
+      <h3>Medical Record Management</h3>
+      <p>
+        Access your medical records anytime, anywhere, and keep them up to date
+        with our secure platform.
+      </p>
+    </div>
+  </li>
+  <li>
+    <div class="service-icon">
+      <i class="fas fa-prescription-bottle-alt"></i>
+    </div>
+    <div class="service-details">
+      <h3>Prescription Renewal</h3>
+      <p>
+        Renew your prescriptions easily and quickly through our online platform.
+      </p>
+    </div>
+  </li>
+  <li>
+    <div class="service-icon"><i class="fas fa-vial"></i></div>
+    <div class="service-details">
+      <h3>Lab Test Results</h3>
+      <p>
+        Access your lab test results online, and stay informed about your
+        health.
+      </p>
+    </div>
+  </li>
+</ul>
+
+
+
+{% endblock %} 
+
+{% block content3 %}
+
+<h2>About Us</h2>
+<p>
+  Clinic Book System is a modern and user-friendly platform for managing
+  your medical appointments and records. Our goal is to make it easy for
+  you to book appointments with your doctor, keep track of your medical
+  history, and access your lab test results.
+</p> 
+
+{% endblock %}
+
+
+

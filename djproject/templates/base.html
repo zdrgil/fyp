@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" >
+  </head>
+  <body>
+    {% block nav %} 
+    {% endblock %}
+    <main>
+      <section class="hero">
+        {% block content1 %} 
+        {% endblock content1 %}
+      </section>
+
+      <section class="services">
+        {% block content2 %} 
+        {% endblock %}
+      </section>
+
+      <section class="about">
+        {% block content3 %} 
+        {% endblock %}
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Clinic Book System. All rights reserved.</p>
+    </footer>
+
+    <div id="rasa-chat-widget" data-websocket-url="http://192.168.110.91:5005"></div>
+
+    <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
+
+
+
+  </body>
+</html>

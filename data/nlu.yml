@@ -1,0 +1,197 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+- intent: my_profile
+  examples: |
+    - What is my profile information?
+    - Can you show me my profile?
+    - Get my profile details
+    - Display my profile
+    - Show information about my profile
+    - What are my profile settings?
+    - Retrieve my profile data
+
+- intent: appointment
+  examples: |
+    - I want to book an appointment
+    - Can I schedule an appointment?
+    - How can I make an appointment?
+    - Is it possible to book a visit?
+    - I need to see a doctor
+
+
+
+- intent: provide_date
+  examples: |
+    - 2023-05-23
+    - 2023-06-10
+    - 2023-07-01
+    - 2023-08-05
+    - 2023-09-15
+    - 2023-10-20
+    - 2023-11-12
+    - 2023-12-25
+    - 2024-01-05
+    - 2024-02-14
+    - 2024-03-08
+    - 2024-04-18
+    - 2024-05-30
+    - 2024-06-22
+
+
+
+
+- intent: provide_time
+  examples: |
+    - 3:00 PM
+    - 9:30 am
+    - Around 2 o'clock
+    - In the evening at 7
+    - At 10:15
+    - 14:22:26
+    - 08:45:00
+    - 19:10:30
+    - 11:55:15
+    - 22:30:00
+
+- intent: provide_doctor
+  examples: |
+    - The doctor ID is 18
+    - Doctor ID: 17
+    - I have chosen ID 3
+    - ID 4 is the selected doctor
+    - I want to see doctor with ID 19
+    - The chosen doctor has ID 23
+    - Doctor ID 7 is my selection
+    - I'm interested in doctor with ID 8
+    - Doctor with ID 9 is my preference
+    - The ID of the doctor I selected is 10
+    - I have chosen doctor with ID 20
+    - Doctor with ID 30 is my preference
+    - The selected doctor has ID 40
+    - My preferred doctor has ID 50
+    - I want to see doctor ID 60
+
+
+- intent: provide_fullname
+  examples: |
+    - John Smith
+    - John Doe
+    - Alice
+    - Michael Johnson
+    - Emily Brown
+    - Robert Anderson
+    - Sarah Wilson
+    - David Taylor
+    - Jennifer Clark
+    - Daniel Davis
+    - Jessica Martinez
+    - Christopher Johnson
+    - Laura Thompson
+    - Matthew White
+    - Olivia Harris
+    - Andrew Nelson
+    - Sophia Turner
+    - William Anderson
+    - Ava Lewis
+
+- intent: provide_sex
+  examples: |
+    - Male
+    - Female
+
+- intent: provide_age
+  examples: |
+    - My age is 30.
+    - I'm 50 years old.
+    - I'm 20

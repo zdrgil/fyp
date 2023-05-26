@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="{% static 'css/Customerlistdetail.css' %}" />
+  </head>
+
+  <body>
+    <div class="home-content">
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="sales-details">
+            <ul class="details">
+              <li class="topic">ID</li>
+              {% for appointment in appointments %}
+
+              <li>{{appointment.id}}</li>
+              {% endfor %}
+            </ul>
+
+            <ul class="details">
+              <li class="topic">time</li>
+              {% for appointment in appointments %}
+
+              <li>{{appointment.date}}  {{appointment.time}}</li>
+
+
+              {% endfor %}
+            </ul>
+
+            <ul class="details">
+              <li class="topic">customer</li>
+              {% for appointment in appointments %}
+
+              <li>{{appointment.customer}}</li>
+              {% endfor %}
+            </ul>
+
+            <ul class="details">
+                <li class="topic">fullname</li>
+                {% for appointment in appointments %}
+  
+                <li>{{appointment.fullname}}</li>
+                {% endfor %}
+              </ul>
+
+            <ul class="details">
+              <li class="topic">sex</li>
+              {% for appointment in appointments %}
+
+              <li>{{appointment.sex}}</li>
+              {% endfor %}
+            </ul>
+            <ul class="details">
+              <li class="topic">phonenumber</li>
+              {% for appointment in appointments %}
+
+              <li>{{appointment.customer.phonenumber}}</li>
+              {% endfor %}
+            </ul>
+
+            <ul class="details">
+                <li class="topic">doctor</li>
+                {% for appointment in appointments %}
+  
+                <li>{{appointment.doctor}}</li>
+                {% endfor %}
+              </ul>
+
+              <ul class="details">
+                <li class="topic">state</li>
+                {% for appointment in appointments %}
+  
+                <li>{{appointment.state}}</li>
+                {% endfor %}
+              </ul>
+
+            <ul class="details">
+              <li class="topic">Option</li>
+              {% for appointment in appointments %}
+              <li>
+                <div class="button">
+                  <a href="{% url 'edit_appointment' appointment.id %}">Edit</a>
+
+
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="pagination">
+            <span class="step-links">
+              {% if appointments.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a>|</a>
+                <a href="?page={{ appointments.previous_page_number }}">previous</a>
+              {% endif %}
+          
+              <span class="current-page">
+                Page {{ appointments.number }} of {{ appointments.paginator.num_pages }}.
+              </span>
+          
+              {% if appointments.has_next %}
+                <a href="?page={{ appointments.next_page_number }}">next</a>
+                <a>|</a>
+                <a href="?page={{ appointments.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

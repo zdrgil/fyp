@@ -1,0 +1,71 @@
+/* Hero section */
+.hero {
+    background-color: #f2f2f2;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .cta-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .cta-btn:hover {
+    background-color: #444;
+  }
+
+
+  .appointment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.appointment-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+}
+
+.appointment-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-date {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.appointment-time {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.appointment-clinic {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.appointment-doctor {
+  font-size: 18px;
+  margin-top: 10px;
+}

@@ -1,0 +1,48 @@
+/* Services section */
+.services {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.services h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.services ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.services li {
+  margin: 0 10px 30px;
+  flex-basis: 30%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.services li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.services li span {
+  display: block;
+  font-size: 30px;
+  color: #0d6efd;
+  padding: 20px 0;
+}
+
+.services li p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 10px 20px 20px;
+}

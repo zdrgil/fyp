@@ -1,0 +1,28 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: action_record_chatlog
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - action: action_record_chatlog
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: my_profile
+  - action: action_hello_world
+  - action: action_record_chatlog
+
+  
+# - rule: Activate appointment flow
+#   steps:
+#   - intent: appointment
+#   - action: action_collect_appointment_data
+#   - action: action_submit_appointment

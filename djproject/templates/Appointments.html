@@ -1,0 +1,175 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Appointments</title>
+    <link rel="stylesheet" href="{% static 'css/Appointments.css' %}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#clinic").on("change", function () {
+          var clinic_id = $(this).val();
+          if (clinic_id) {
+            $.ajax({
+              url: "/doctors/",
+              type: "GET",
+              data: {
+                clinic_id: clinic_id,
+              },
+              success: function (data) {
+                $("#doctor").empty();
+                $("#doctor").append(
+                  '<option value="">Select a doctor</option>'
+                );
+                $.each(data, function (index, doctor) {
+                  $("#doctor").append(
+                    '<option value="' +
+                      doctor.id +
+                      '">' +
+                      doctor.name +
+                      "</option>"
+                  );
+                });
+                $("#doctor").prop("disabled", false);
+              },
+              error: function (xhr, errmsg, err) {
+                console.log(xhr.status + ": " + xhr.responseText);
+              },
+            });
+          } else {
+            $("#doctor").empty();
+            $("#doctor").append(
+              '<option value="">Select a clinic first</option>'
+            );
+            $("#doctor").prop("disabled", true);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="formbold-main-wrapper">
+      <!-- Author: FormBold Team -->
+      <!-- Learn More: https://formbold.com -->
+      <div class="formbold-form-wrapper">
+        <form method="POST" action="{% url 'index' %}">
+          {% csrf_token %}
+          <div class="formbold-form-title">
+            <h2 class="">Book an Appointment</h2>
+            <p>Please fill in the following details to book an appointment.</p>
+          </div>
+          <div class="formbold-form-container">
+            <div class="formbold-input-flex">
+              <div>
+                <label for="clinic" class="formbold-form-label">Clinic</label>
+                {% if clinics %}
+                <select name="clinic" id="clinic" class="formbold-form-input">
+                  <option value="">Select a clinic first</option>
+
+                  {% for clinic in clinics %}
+                  <option value="{{ clinic.id }}">
+                    {{ clinic.clinicname }}
+                  </option>
+                  {% endfor %}
+                </select>
+                {% else %}
+                <p>No clinics found</p>
+                {% endif %}
+              </div>
+              <div>
+                <label for="doctor" class="formbold-form-label">Doctor</label>
+                <select
+                  name="doctor"
+                  id="doctor"
+                  class="formbold-form-input"
+                  disabled
+                >
+                  <option value="">Select a clinic first</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="formbold-form-container">
+            <div class="formbold-input-flex">
+              <div>
+                <label for="time" class="formbold-form-label"> Time </label>
+                <input
+                  type="time"
+                  name="time"
+                  id="time"
+                  class="formbold-form-input"
+                  value="{{ current_time }}"
+                  min="{{ current_time }}"
+                />
+              </div>
+
+              <div>
+                <label for="date" class="formbold-form-label"> Date </label>
+                <input
+                  type="date"
+                  name="date"
+                  id="date"
+                  class="formbold-form-input"
+                  value="{{ current_date }}"
+                  min="{{ current_date }}"
+                />
+              </div>
+            </div>
+          </div>
+          {% if user.is_authenticated %}
+          <input type="hidden" name="customer_id" value="{{ customer.id }}">
+          <div class="formbold-form-container">
+            <div class="formbold-input-flex">
+              <div>
+                <label for="fullname" class="formbold-form-label"
+                  >Fullname</label
+                >
+                <input
+                  type="text"
+                  name="fullname"
+                  id="fullname"
+                  class="formbold-form-input"
+                  value="{{ customer_info.fullname }}"
+                />
+              </div>
+              <div>
+                <label for="age" class="formbold-form-label">Age</label>
+                <input
+                  type="text"
+                  name="age"
+                  id="age"
+                  class="formbold-form-input"
+                  value="{{ customer_info.age }}"
+                />
+              </div>
+              <div>
+                <label for="sex" class="formbold-form-label">Sex</label>
+                <input
+                  type="text"
+                  name="sex"
+                  id="sex"
+                  class="formbold-form-input"
+                  value="{{ customer_info.sex }}"
+                />
+              </div>
+            </div>
+          </div>
+
+          {% endif %}
+
+
+
+          <button name="submit" value="book_appointment" class="formbold-btn">
+            Book Appointment
+          </button>
+        </form>
+        {% for message in messages %}
+        <h2>{{message}}</h2>
+         {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

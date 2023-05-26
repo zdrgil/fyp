@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="{% static 'css/Customerlistdetail.css' %}" />
+  </head>
+
+  <body>
+    <div class="home-content">
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="button">
+              <a href="{% url 'add_doctor' %}">Add doctor</a>
+          </div>
+
+          <div class="sales-details">
+            <ul class="details">
+              <li class="topic">ID</li>
+              {% for doctor in doctors %}
+
+              <li>{{doctor.id}}</li>
+              {% endfor %}
+            </ul>
+
+
+
+            <ul class="details">
+              <li class="topic">name</li>
+              {% for doctor in doctors %}
+
+              <li>{{doctor.name}}</li>
+              {% endfor %}
+            </ul>
+
+            <ul class="details">
+                <li class="topic">state</li>
+                {% for doctor in doctors %}
+  
+                <li>{{doctor.state}}</li>
+                {% endfor %}
+              </ul>
+
+
+
+            <ul class="details">
+              <li class="topic">Option</li>
+              {% for doctor in doctors %}
+
+              <li>
+                <div class="button">
+                  <a href="{% url 'edit_doctor' doctor.id %}"
+                    >Edit</a
+                  >
+                  <ul>
+                    |
+                  </ul>
+                  <a
+                    href="{% url 'delete_doctor' doctor.id %}"
+                    onclick="return confirm('Are you sure you want to delete this appointment?')"
+                    >Delete</a
+                  >
+                </div>
+              </li>
+              {% endfor %}
+  
+
+              
+            </ul>
+          </div>
+          <div class="pagination">
+            <span class="step-links">
+              {% if doctors.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a>|</a>
+                <a href="?page={{ doctors.previous_page_number }}">previous</a>
+              {% endif %}
+          
+              <span class="current-page">
+                Page {{ doctors.number }} of {{ doctors.paginator.num_pages }}.
+              </span>
+          
+              {% if doctors.has_next %}
+                <a href="?page={{ doctors.next_page_number }}">next</a>
+                <a>|</a>
+                <a href="?page={{ doctors.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

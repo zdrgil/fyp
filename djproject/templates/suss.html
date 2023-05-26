@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+
+{% block nav %}
+{% include "NavBar.html" %}
+{% endblock %} 
+
+
+{% block content1 %} 
+
+{% include "Profile.html" with customer=customer appointments=appointments %}
+
+{% endblock %}

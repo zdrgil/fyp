@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="{% static 'css/Customerlistdetail.css' %}" />
+  </head>
+
+  <body>
+    <div class="home-content">
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="sales-details">
+            <ul class="details">
+              <li class="topic">ID</li>
+              {% for customer in customers %}
+
+              <li>{{customer.id}}</li>
+              {% endfor %}
+            </ul>
+
+            <ul class="details">
+              <li class="topic">fullname</li>
+              {% for customer in customers %}
+
+              <li>{{customer.fullname}}</li>
+              {% endfor %}
+            </ul>
+
+            <ul class="details">
+              <li class="topic">age</li>
+              {% for customer in customers %}
+
+              <li>{{customer.age}}</li>
+              {% endfor %}
+            </ul>
+            <ul class="details">
+              <li class="topic">sex</li>
+              {% for customer in customers %}
+
+              <li>{{customer.sex}}</li>
+              {% endfor %}
+            </ul>
+            <ul class="details">
+              <li class="topic">phonenumber</li>
+              {% for customer in customers %}
+
+              <li>{{customer.phonenumber}}</li>
+              {% endfor %}
+            </ul>
+
+            <ul class="details">
+              <li class="topic">Option</li>
+              {% for customer in customers %}
+              <li>
+                <div class="button">
+                  <a href="{% url 'edit_customer' customer.id %}">Edit</a>|
+                  <a href="{% url 'change_password' customer.id %}">change password</a>
+
+
+                </div>
+              </li>
+              {% endfor %}
+
+
+              
+            </ul>
+          </div>
+          <div class="pagination">
+            <span class="step-links">
+              {% if customers.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a>|</a>
+                <a href="?page={{ customers.previous_page_number }}">previous</a>
+              {% endif %}
+          
+              <span class="current-page">
+                Page {{ customers.number }} of {{ customers.paginator.num_pages }}.
+              </span>
+          
+              {% if customers.has_next %}
+                <a href="?page={{ customers.next_page_number }}">next</a>
+                <a>|</a>
+                <a href="?page={{ customers.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
