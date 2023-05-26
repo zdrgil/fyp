@@ -3,7 +3,7 @@
 2. install python virtual environments 
 3. pip install requirements.txt
 4. open django server "python manage.py runserver 192.168.110.91:8000" （change 192.168.110.91 to your computer local ip,to find ,to find local ip cmd "ipconfig /all" ）
-5. to connect rasa
+5. to connect rasa,open rasa server
 6. rasa run --enable-api --cors "*" 
 7. rasa run actions
 8. change base.html 
